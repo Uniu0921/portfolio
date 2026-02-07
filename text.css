@@ -1,77 +1,69 @@
-/* カラー変数 */
+/* =============================
+   カラー変数
+============================= */
 :root {
-  --frieren-green: #7fae9e; /* 落ち着いた緑 */
+  --frieren-green: #7fae9e;
   --text-white: #ffffff;
 }
 
-/* 全体背景 */
+/* =============================
+   全体
+============================= */
 body {
-  background-color: var(--frieren-green); /* サイト全体の背景を緑に */
-  margin: 0;  /* ページ端の余白をなくす */
+  background-color: var(--frieren-green);
+  margin: 0;
+  font-family: sans-serif;
 }
 
-/* ===== ヘッダー ===== */
+/* =============================
+   ヘッダー
+============================= */
 header {
+  position: relative;   /* ← ハンバーガー固定用 */
   text-align: center;
-  background: var(--frieren-green); /* 背景を緑に */
-  padding: 20px 20px;
+  padding: 20px;
 }
 
-/* タイトル（私辞書） */
+/* タイトル */
 .title-hand {
-  display: inline-block;
-  color: var(--text-white); /* 白文字 */
+  color: var(--text-white);
   font-size: 36px;
   font-weight: 600;
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: default; /* ホバーなし */
+  margin-bottom: 20px;
 }
 
-/* タイトル下の画像 */
-.dictionary-image {
-  display: block;
-  margin: 20px auto 0;
-  width: auto;      /* 元サイズ */
-  height: auto;     /* 元サイズ */
-  max-width: none;
-}
-
-
-
+/* =============================
+   スライドショー
+============================= */
 .slideshow-wrapper {
   position: relative;
-  width: 100%;
+  width: 90%;
   max-width: 800px;
   margin: 0 auto;
-  aspect-ratio: 16 / 9;   /* ★ これを追加 */
+  aspect-ratio: 16 / 9;
 }
 
 .slideshow-image {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;           /* ★ 追加 */
-  object-fit: cover;     /* ★ 追加 */
+  height: 100%;
+  object-fit: cover;
   opacity: 0;
-  transition: opacity 3s ease-in-out;
+  transition: opacity 1.5s ease-in-out;
 }
 
-#slide1 {
+.slideshow-image.active {
   opacity: 1;
 }
 
-
-
-/* ===== ナビゲーション ===== */
+/* =============================
+   PCナビ
+============================= */
 .global-nav {
-  background: var(--frieren-green); /* 背景を緑に */
-  padding: 10px 40px;
   text-align: center;
+  padding: 20px 0;
 }
 
-/* 横並びリスト */
 .global-nav ul {
   display: flex;
   justify-content: center;
@@ -81,27 +73,102 @@ header {
   padding: 0;
 }
 
-/* リンク */
 .global-nav a {
-  display: inline-block;
-  color: var(--text-white); /* 白文字 */
+  color: var(--text-white);
   text-decoration: none;
   font-size: 16px;
   letter-spacing: 0.15em;
   padding: 8px 16px;
   border-radius: 4px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: 0.3s;
 }
 
 .global-nav a:hover {
-  background: var(--text-white);      /* ホバーで白背景 */
-  color: var(--frieren-green);        /* ホバーで文字を緑に */
+  background: var(--text-white);
+  color: var(--frieren-green);
 }
 
-/* フッターがある場合も背景を緑に */
-footer {
+/* =============================
+   ハンバーガー
+============================= */
+header {
+  position: relative;
+}
+
+.hamburger {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  width: 40px;     /* ← 30px → 40px */
+  height: 30px;    /* ← 22px → 30px */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 4px;     /* ← 3px → 4px */
+  background: #3207dd;
+  border-radius: 3px;
+}
+
+
+
+/* =============================
+   モバイルメニュー
+============================= */
+.mobile-nav {
+  position: absolute;
+  top: 70px;
+  right: 20px;
   background: var(--frieren-green);
-  padding: 20px;
-  color: var(--text-white);
-  text-align: center;
+  width: 200px;
+  border-radius: 6px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  display: none;
+}
+
+.mobile-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-nav li {
+  border-bottom: 1px solid hsla(205, 61%, 25%, 0.456);
+}
+
+.mobile-nav li:last-child {
+  border-bottom: none;
+}
+
+.mobile-nav a {
+  display: block;
+  padding: 12px;
+  color: #520ae1e1;   /* 濃い緑 */
+  text-decoration: none;
+  font-weight: bold;   /* ← 追加 */
+}
+
+.mobile-nav a:hover {
+  background-color: #ffffff;  /* 白背景 */
+  color: #db08bbda;             /* 水色文字 */
+}
+
+/* JSで付けるクラス */
+.mobile-nav.active {
+  display: block;
+}
+
+/* =============================
+   レスポンシブ（スマホ用）
+============================= */
+@media (max-width: 768px) {
+  .global-nav {
+    display: none;   /* スマホだけ横ナビ消す */
+  }
 }
