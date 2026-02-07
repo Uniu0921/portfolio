@@ -34,7 +34,7 @@ header {
 .career-wrapper {
   display: flex;
   justify-content: center;   /* 全体中央 */
-  gap: 40px;                 /* ブロック間隔 */
+  gap: 20px;                 /* ブロック間隔 */
   margin-top: 40px;
 }
 
@@ -44,7 +44,7 @@ header {
   flex-direction: column;    /* 中身は縦 */
   align-items: flex-start;
   gap: 8px;
-  width: 260px;              /* ← 幅を固定（重要） */
+  width: 440px;              /* ← 幅を固定（重要） */
 }
 
 /* 見出し */
@@ -56,27 +56,41 @@ header {
 /* 箇条書き全体 */
 .apricot-list {
   list-style: none;
-  padding: 0;
+  padding-left: 20px;   /* ← ここを増やす */
   margin: 0;
 }
 
-/* liを横並びにする */
+.apricot-list {
+  text-align: center; /* 全体は中央 */
+}
+
+.apricot-list .text {
+  display: inline-block; /* 中央寄せの中で左寄せ可能に */
+  text-align: left;
+}
+
 .apricot-list li {
   display: flex;
   align-items: flex-start;
-  gap: 0;              /* ← ここが重要：空白ゼロ */
-  font-size: 18px;   /* ← 項目文字サイズ */
-  line-height: 1.8; /* ← 読みやすく */
+  font-size: 18px;
+  line-height: 1.9;
 }
 
-/* ・を疑似要素で作る */
 .apricot-list li::before {
   content: "・";
+  margin-right: 8px;   /* ← ・と本文の間 */
   flex-shrink: 0;
-  font-size: 18px;   /* ← liと同じにする */
 }
 
+.apricot-list li .text {
+  display: block;
+  text-align: left;    /* ← 左寄せ */
+}
 
+.apricot-text.center {
+  font-size: 18px;
+  line-height: 1.9;
+}
 
 /* 画像 */
 .flower-image {
