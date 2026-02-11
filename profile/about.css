@@ -1,0 +1,131 @@
+/* カラー変数 */
+:root {
+  --frieren-green: #7fae9e; /* 落ち着いた緑 */
+  --text-white: #ffffff;
+}
+
+/* 全体背景 */
+body {
+  background-color: var(--frieren-green);
+  margin: 0;
+}
+
+/* ===== ヘッダー ===== */
+header {
+  text-align: center;
+  background: var(--frieren-green);
+  padding: 20px 20px;
+}
+
+/* タイトル */
+.title-hand {
+  display: inline-block;
+  color: var(--text-white);
+  font-size: 36px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: default;
+  margin-bottom: 5px;
+}
+
+.profile-title {
+  text-align: center;
+}
+
+/* ===== 共通：中身の横並び ===== */
+.apricot-box {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+/* ===== 杏セット（中央寄せ） ===== */
+.apricot-wrapper.left {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* 杏の画像 */
+.flower-image {
+  width: 280px;
+  height: auto;
+  margin-left: -120px;
+}
+
+/* ===== 映画セット（右寄せ） ===== */
+.apricot-wrapper.right {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+/* 映画の画像 */
+.movie-image {
+  width: 300px;
+  margin-left: 20px;   /* ← この数字で右にずらす */
+}
+
+
+/* ===== テキスト共通 ===== */
+.apricot-text {
+  line-height: 3.6;
+  white-space: nowrap;
+  font-size: 20px;
+}
+
+.apricot-text.left {
+  text-align: right;
+}
+
+.apricot-text.right {
+  text-align: left;
+  margin-left: -20px;
+}
+
+.apricot-wrapper.right .apricot-box {
+  transform: translateX(-120px);
+}
+
+/* ===== ナビゲーション ===== */
+.global-nav {
+  background: var(--frieren-green);
+  padding: 10px 40px;
+  text-align: center;
+}
+
+/* 横並びリスト */
+.global-nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* リンク */
+.global-nav a {
+  display: inline-block;
+  color: var(--text-white);
+  text-decoration: none;
+  font-size: 16px;
+  letter-spacing: 0.15em;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.global-nav a:hover {
+  background: var(--text-white);
+  color: var(--frieren-green);
+}
+
+/* ===== フッター ===== */
+footer {
+  background: var(--frieren-green);
+  padding: 20px;
+  color: var(--text-white);
+  text-align: center;
+}

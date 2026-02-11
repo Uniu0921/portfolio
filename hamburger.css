@@ -1,0 +1,110 @@
+
+/* =============================
+   ハンバーガー
+============================= */
+header {
+  position: relative;
+}
+
+.hamburger {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  width: 40px;
+  height: 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* 中央基準 */
+  gap: 8px;
+
+  cursor: pointer;
+}
+
+
+.hamburger span {
+  width: 100%;          /* ← そのまま */
+  height: 4px;
+  background: #3207dd;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+
+
+/* アニメーションをつける */
+.hamburger span {
+  transition: none;
+}
+
+
+/* 開いたとき（×にする） */
+.hamburger.open span:nth-child(1) {
+  transform: translateY(12px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-12px) rotate(-45deg);
+}
+
+
+
+/* =============================
+   モバイルメニュー
+============================= */
+.mobile-nav {
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  background:#67a9d0;  /* ← 好きな色に変更 */
+  width: 200px;
+  border-radius: 6px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  display: none;
+}
+
+.mobile-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-nav li {
+  border-bottom: 1px solid hsla(205, 61%, 25%, 0.456);
+}
+
+.mobile-nav li:last-child {
+  border-bottom: none;
+}
+
+.mobile-nav a {
+  display: block;
+  padding: 12px;
+  color: #520ae1e1;   /* 濃い緑 */
+  text-decoration: none;
+  font-weight: bold;   /* ← 追加 */
+}
+
+.mobile-nav a:hover {
+  background-color: #ffffff;  /* 白背景 */
+  color: #db08bbda;             /* 水色文字 */
+}
+
+/* JSで付けるクラス */
+.mobile-nav.active {
+  display: block;
+}
+
+/* =============================
+   レスポンシブ（スマホ用）
+============================= */
+@media (max-width: 768px) {
+  .global-nav {
+    display: none;   /* スマホだけ横ナビ消す */
+  }
+}

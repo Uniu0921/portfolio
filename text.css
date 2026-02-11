@@ -1,0 +1,90 @@
+/* =============================
+   カラー変数
+============================= */
+:root {
+  --frieren-green: #7fae9e;
+  --text-white: #ffffff;
+}
+
+/* =============================
+   全体
+============================= */
+body {
+  background-color: var(--frieren-green);
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/* =============================
+   ヘッダー
+============================= */
+header {
+  position: relative;   /* ← ハンバーガー固定用 */
+  text-align: center;
+  padding: 20px;
+}
+
+/* タイトル */
+.title-hand {
+  color: var(--text-white);
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* =============================
+   スライドショー
+============================= */
+.slideshow-wrapper {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+}
+
+.slideshow-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.slideshow-image.active {
+  opacity: 1;
+}
+
+/* =============================
+   PCナビ
+============================= */
+.global-nav {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.global-nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.global-nav a {
+  color: var(--text-white);
+  text-decoration: none;
+  font-size: 16px;
+  letter-spacing: 0.15em;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.global-nav a:hover {
+  background: var(--text-white);
+  color: var(--frieren-green);
+}
+
