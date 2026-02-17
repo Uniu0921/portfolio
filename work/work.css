@@ -99,3 +99,19 @@ header {
   color: var(--text-white);
   text-decoration: none;
 }
+
+.row {
+  display: flex;
+  align-items: flex-start;
+}
+
+.label {
+  flex-shrink: 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;  /* ← これが重要 */
+}
+
+
