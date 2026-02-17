@@ -1,6 +1,6 @@
 /* カラー変数 */
 :root {
-  --frieren-green: #7fae9e; /* 落ち着いた緑 */
+  --frieren-green: #7fae9e;
   --text-white: #ffffff;
 }
 
@@ -25,7 +25,6 @@ header {
   font-weight: 600;
   padding: 10px 20px;
   border-radius: 4px;
-  cursor: default;
   margin-bottom: 5px;
 }
 
@@ -33,39 +32,59 @@ header {
   text-align: center;
 }
 
-/* ===== 共通：中身の横並び ===== */
+/* ===== 左右共通ラッパー ===== */
+.apricot-wrapper.left,
+.apricot-wrapper.right {
+  display: flex;
+  justify-content: center;  /* 中央基準 */
+  margin-top: 20px;
+}
+
+/* ===== 中身ボックス（基準幅） ===== */
 .apricot-box {
   display: flex;
   align-items: center;
   gap: 30px;
+  width: 90%;
+  max-width: 900px;   /* ← ここを少し小さくする */
+  margin: 0 auto;     /* ← 中央固定 */
 }
 
-/* ===== 杏セット（中央寄せ） ===== */
-.apricot-wrapper.left {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+
+/* 左右の寄せ方 */
+.apricot-wrapper.left .apricot-box {
+  justify-content: flex-start;
+  padding-left: 5%;   /* ← この数値で右に微調整 */
 }
 
-/* 杏の画像 */
-.flower-image {
-  width: 280px;
-  height: auto;
-  margin-left: -120px;
-}
-
-/* ===== 映画セット（右寄せ） ===== */
-.apricot-wrapper.right {
-  display: flex;
+.apricot-wrapper.right .apricot-box {
   justify-content: flex-end;
-  margin-top: 20px;
+  padding-right: 2%;
 }
 
-/* 映画の画像 */
-.movie-image {
-  width: 300px;
-  margin-left: 20px;   /* ← この数字で右にずらす */
+
+/* ===== 杏の画像 ===== */
+.flower-image {
+  width: 25%;
+  max-width: 280px;
+  height: auto;
 }
+
+/* ===== 映画の画像 ===== */
+.movie-image {
+  width: 28%;
+  max-width: 300px;
+  height: auto;
+}
+
+.flower-image,
+.movie-image {
+  width: 200px;
+  height: 200px;     /* ← 高さも固定 */
+  object-fit: cover; /* ← 重要：はみ出しトリミング */
+}
+
+
 
 
 /* ===== テキスト共通 ===== */
@@ -81,12 +100,10 @@ header {
 
 .apricot-text.right {
   text-align: left;
-  margin-left: -20px;
 }
 
-.apricot-wrapper.right .apricot-box {
-  transform: translateX(-120px);
-}
+
+
 
 /* ===== ナビゲーション ===== */
 .global-nav {
@@ -95,7 +112,6 @@ header {
   text-align: center;
 }
 
-/* 横並びリスト */
 .global-nav ul {
   display: flex;
   justify-content: center;
@@ -105,27 +121,10 @@ header {
   padding: 0;
 }
 
-/* リンク */
 .global-nav a {
   display: inline-block;
   color: var(--text-white);
   text-decoration: none;
   font-size: 16px;
   letter-spacing: 0.15em;
-  padding: 8px 16px;
-  border-radius: 4px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.global-nav a:hover {
-  background: var(--text-white);
-  color: var(--frieren-green);
-}
-
-/* ===== フッター ===== */
-footer {
-  background: var(--frieren-green);
-  padding: 20px;
-  color: var(--text-white);
-  text-align: center;
 }
